@@ -1,3 +1,6 @@
+# ignore checkpoints
 *.ipynb_checkpoints/
 
+# ignore py config
 config.py
+config.pyc
