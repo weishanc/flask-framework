@@ -7,24 +7,59 @@
     <meta name="author" content="@gotoariel">
     <!-- <link rel="icon" href="favicon.ico"> -->
 
-    <title>Wilkommen, bienvenue, and welcome to Heroku!</title>
+    <title>Stock Time-Series Demo</title>
 
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  </head>
-  <body>
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-12 text-left">
-          <h2>About</h2>
-          <p><a href="/">Home</a></p>
+    <!-- Custom CSS for navbar -->
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+    .topnav {
+        overflow: hidden;
+        background-color: #333;
+    }
+    .topnav a {
+        float: left;
+        color: #f2f2f2;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+        font-size: 17px;
+    }
+    .topnav a:hover {
+        background-color: #ddd;
+        color: black;
+    }
+    .topnav a.active {
+        background-color: #4ca3af;
+        color: white;
+    }
+    </style>
+    </head>
+
+    <body>
+        <!-- navigation -->
+        <div class="topnav">
+            <a href="/index">Home</a>
+            <a href="https://github.com/RyanGan/flask-framework">GitHub</a>
+            <a class="activate" href="/about">About</a>
         </div>
-      </div>
-    </div>
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  </body>
+        
+    <div style='padding-left:16px'>
+        <h2> About the <i>Stock Time-Series Demo</i></h2>
+        <p>This app was built as part of the milestone projects for the Data Incubator 12 day pre-bootcamp course. As someone familiar with R shiny where controlling page layout is extremely difficult, this was actually an informative process and learning experience.</p>
+        
+        <p> Data for this project comes from the Qandal Wiki dataset. I was unable to use an API call to download data from 2018, so I downloaded 2017-05-01 to 2017-05-30. It also looks like it only grabbed stocks from A to CHGG. I will need to figure out why it didn't pull all tickers even though I did request any specific tickers in the API call. Future work could involve an API call directly in to the app so it doesn't need a flat file. </p>
+        
+        <p> Example scripts where I worked through the API call and Bokeh plotting can be found on my GitHub page. </p>
+
+<!-- Bootstrap core JavaScript
+ ================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    </body>
 </html>
