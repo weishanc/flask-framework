@@ -13,8 +13,6 @@ from flask import Flask, render_template, request, redirect
 import requests
 # import pandas
 import pandas as pd
-#import numpy
-import numpy as np
 # import bokeh
 from bokeh.plotting import figure, show
 from bokeh.models import ColumnDataSource
