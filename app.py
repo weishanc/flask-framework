@@ -34,24 +34,26 @@ wiki_stock = pd.read_csv('./data/wiki_stock_price.csv')
 # custom function to return dataframe based on ticker price; sets up api call
 def sub_data(pars):
     # call api; using set date still
-    call_url = 'https://www.quandl.com/api/v3/datatables/WIKI/PRICES.json?' +
-        '&date.gte=2017-05-01&date.lte=2017-05-31&api_key=' + config.api_key)
+    call_url = ('https://www.quandl.com/api/v3/datatables/WIKI/PRICES?' +
+        '&date.gte=2017-05-01&date.lte=2017-05-31')
     # set stock ticker to call
     stock_name = pars['stock_name']
+
     # call quandl key stored on heroku
     quandl_api_key = os.environ.get('quandl_api_key')
-
+    
     # setting payload options to append to url reques for specific ticker and api key
-    payload = {'ticker':stock_name, 'api_key' : quandl_api_key}
+    payload = {'ticker':stock_name, 'api_key':quandl_api_key}
 
     # register request
     r = requests.get(call_url, params = payload)
     # convert to json
     data = r.json()
-
+    
     # extract column names
     colnames = [item['name'] for item in data['datatable']['columns']]
-    df = pd.DataFrame(data['datatable']['data'], columns = colnames)
+    # extract data
+    df = pd.DataFrame(data['datatable']['data'], columns=colnames)
     # set datetime
     df['date'] = pd.to_datetime(df['date'], format = '%Y-%m-%d')
     # return df
@@ -119,7 +121,7 @@ def index():
         pars['features'] = request.form.getlist('features')
 
         # subset df from wiki_stock
-        df = sub_data(pars['stock_name'])
+        df = sub_data(pars)
 
         plot = make_plot(df, pars)
 
