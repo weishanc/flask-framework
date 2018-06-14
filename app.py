@@ -24,11 +24,6 @@ import os
 app = Flask(__name__)
 
 # ----------------
-# import stock prices csv; going to take this out.
-wiki_stock = pd.read_csv('./data/wiki_stock_price.csv')
-# ----------------
-
-# ----------------
 # CUSTOM FUNCTIONS FOR PLOT
 
 # custom function to return dataframe based on ticker price; sets up api call
